@@ -7,7 +7,6 @@ class SearchPage {
 
   constructor(page: Page) {
     this.page = page;
-    // this.searchInput = page.locator('[id="twotabsearchtextbox"]');
     this.searchInput = page.getByPlaceholder('Search Amazon');
     this.submitSearch = page.locator('[id="nav-search-submit-text"]');
   }

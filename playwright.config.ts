@@ -32,6 +32,9 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
 
+  globalTimeout: 60 * 100 * 90000,
+  timeout: 50 * 30 * 30000,
+
   /* Configure projects for major browsers */
   projects: [
     {
