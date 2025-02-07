@@ -52,7 +52,7 @@ To run the Second Exercise test, run this command in your terminal:
 ```bash
 npm run test:secondPart
 ```
-To show the report of the test execution, run this command in your terminal:
+To show the report of the last test execution, run this command in your terminal:
 ```bash
 npm run test:report
 ```
