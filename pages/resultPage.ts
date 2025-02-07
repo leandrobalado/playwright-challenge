@@ -12,12 +12,12 @@ class ResultPage {
       .locator("#a-autoid-0-announce")
       .getByText("Sort by:");
     this.sortByDescOrder = page.locator('[id="s-result-sort-select_2"]');
-    this.stockInfo = page.locator('[id="availability"]');
+    this.stockInfo = page.locator('[id="availability"]').first();
   }
 
   async sortByDescendingPrice() {
     await this.sortByDropdown.click();
-    await this.page.waitForLoadState("domcontentloaded", { timeout: 5000 });
+    await this.page.waitForLoadState("domcontentloaded");
     await this.sortByDescOrder.click();
   }
 
@@ -39,7 +39,7 @@ class ResultPage {
   }
 
   async validateStock() {
-    await this.page.waitForLoadState("domcontentloaded", { timeout: 5000 });
+    await this.page.waitForLoadState("domcontentloaded");
     const stockAvailable = await this.stockInfo.textContent();
     const stockAvailableLowerCase = stockAvailable?.toLowerCase();
     if (

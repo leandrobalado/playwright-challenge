@@ -17,7 +17,7 @@ class CartPage {
       .first();
     this.goToCartBtn = page.getByRole("link", { name: "Go to Cart" }).first();
     this.cartHeading = page.getByRole("heading", { name: "Shopping Cart" });
-    this.productName = page.locator('[class="a-truncate-cut"]');
+    this.productName = page.locator('[class="a-truncate-cut"]').first();
     this.productPrice = page.locator(
       '[class="a-price a-text-price sc-product-price sc-white-space-nowrap a-size-medium"] [aria-hidden="true"]'
     );
@@ -26,7 +26,7 @@ class CartPage {
   }
 
   async addProductToCart() {
-    await this.page.waitForLoadState("domcontentloaded", { timeout: 5000 });
+    await this.page.waitForLoadState("domcontentloaded");
     await this.addToCartBtn.click();
     await this.goToCartBtn.click();
   }

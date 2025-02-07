@@ -5,7 +5,7 @@
   "scripts": {
     "test": "npx playwright test",
     "test:report": "npx playwright show-report",
-    "test:fisrtPart": "npx playwright test --grep @FirstPart",
+    "test:firstPart": "npx playwright test --grep @FirstPart",
     "test:secondPart": "npx playwright test --grep @SecondPart"
   },
   "keywords": [],
