@@ -16,22 +16,22 @@ class ResultPage {
   }
 
   async sortByDescendingPrice() {
-    await this.sortByDropdown.click({ force: true });
+    await this.sortByDropdown.click();
     await this.page.waitForLoadState("domcontentloaded", { timeout: 5000 });
     await this.sortByDescOrder.click();
   }
 
-  async selectFourthItem() {
+  async selectItemNumber(number: number) {
     await this.page.waitForSelector(
       'div[data-component-type="s-search-result"]'
     );
     const items = await this.page.$$(
       'div[data-component-type="s-search-result"]'
     );
-    if (items.length >= 4) {
-      await items[3].scrollIntoViewIfNeeded();
-      await items[3].waitForElementState("visible");
-      const productLink = await items[3].waitForSelector('[class="s-image"]');
+    if (items.length >= number) {
+      await items[number-1].scrollIntoViewIfNeeded();
+      await items[number-1].waitForElementState("visible");
+      const productLink = await items[number-1].waitForSelector('[class="s-image"]');
       await productLink.click();
     } else {
       throw new Error("Less than 4 items in search results.");
@@ -46,6 +46,7 @@ class ResultPage {
       stockAvailableLowerCase &&
       stockAvailableLowerCase.includes("in stock")
     ) {
+      expect(stockAvailableLowerCase).toContain("in stock");
       return console.log("Product in stock.");
     } else {
       return console.log("No stock available.");
