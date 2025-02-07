@@ -2,7 +2,12 @@
   "name": "playwright-challenge",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:report": "npx playwright show-report",
+    "test:fisrtPart": "npx playwright test --grep @FirstPart",
+    "test:secondPart": "npx playwright test --grep @SecondPart"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
