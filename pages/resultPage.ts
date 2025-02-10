@@ -34,7 +34,7 @@ class ResultPage {
       const productLink = await items[number-1].waitForSelector('[class="s-image"]');
       await productLink.click();
     } else {
-      throw new Error("Less than 4 items in search results.");
+      throw new Error(`Less than ${number} item/s in search result.`);
     }
   }
 
